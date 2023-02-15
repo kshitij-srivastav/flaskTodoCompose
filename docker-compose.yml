@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  db_kshitij_:
+   image: postgres
+   restart: always
+   environment: 
+    - POSTGRES_PASSWORD=mypassword
+    - APP_DB_NAME=todo_db
+   volumes:
+    
+    - ./db_data1:/var/lib/postgresql/data
+   ports:
+     - 4532:5432
+
+  services1:
+     build: ./flask1
+     ports:
+     - 8000:8000
+  services2:
+     build: ./flask2
+     ports:
+     - 5006:5000
+   
